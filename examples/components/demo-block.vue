@@ -122,7 +122,6 @@
     border: solid 1px #ebebeb;
     border-radius: 3px;
     transition: .2s;
-
     &.hover {
       box-shadow: 0 0 8px 0 rgba(232, 237, 250, .6), 0 2px 4px 0 rgba(232, 237, 250, .5);
     }
@@ -210,7 +209,7 @@
       &.is-fixed {
         position: fixed;
         bottom: 0;
-        width: 868px;
+        width: 866px;
       }
 
       i {

@@ -1,3 +1,3 @@
 import tableCanvas from './src/table-canvas.vue'
-
-export default tableCanvas
+var canvas = tableCanvas;
+export default canvas

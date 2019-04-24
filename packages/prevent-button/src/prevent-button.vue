@@ -1,5 +1,5 @@
  <template>
-	<el-button type="primary" 
+	<el-button 
 		class="search-btn" 
 		:type="type" :size="size" :icon="icon" :loading="loading"  :disabled="disabled" :nativeType="nativeType"
 		@click="handleClick">

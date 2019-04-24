@@ -33,7 +33,7 @@
     height: 35px;
     border-top-left-radius:10px;
     border-top-right-radius:10px;
-    background: #FF5000;
+    background: $carbg;
     position: absolute;
     left:70px;
     top:0;
@@ -101,7 +101,7 @@
 .car .car_bottom1,.car .car_bottom2{
     width:74px;
     height:33px;
-    background: #FF5000;
+    background: $carbg;
     border-top-left-radius: 24px 20px;
     border-bottom-left-radius: 3px;
     border-bottom:8px solid rgb(186,188,187);
@@ -180,18 +180,18 @@
     top: 10px;
     left: 16px;
     z-index: 8;
-    box-shadow: 0px 10px;
+    box-shadow: 0px 10px #000;
 }
 .car .foot:after{
     content: '';
     width: 2px;
     height: 4px;
-    background: #1d0101;
+    background: #000;
     position: absolute;
     top: 5px;
     left: -5px;
     z-index: 8;
-    box-shadow: 0px 10px;
+    box-shadow: 0px 10px #000;
     -webkit-transform:rotate(-90deg); 
     -moz-transform:rotate(-90deg);
     -o-transform:rotate(-90deg);
@@ -205,6 +205,7 @@
 }
 
 .message{
-    font-size:16px;
-    color:#ff5000;
+    font-size:15px;
+    margin-top: -10px;
+    /*color:$carbg;*/
 }

@@ -18,7 +18,7 @@
         </div>
         <div class="footer">
             <a @click="goInit">开始使用</a>
-            <a href="https://github.com/zhouyuzhuo1123/gmes-ui">github</a>
+            <a href="http://git.evun.cn/zhou.yuzhuo/gmes-ui">github</a>
         </div>
       </div>
     </div>
@@ -69,11 +69,12 @@ export default {
     overflow-y: scroll;
   }
   .body-content{
-    width: 88%;
+    width: 1200px;
     margin: 80px auto 0;
     .body-right{
       margin-left:260px;
       height:100%;
+      max-width:868px;
     }
     .homePage{
       width: 100%;
@@ -96,7 +97,7 @@ export default {
     top: 0;
    // box-shadow: 0 10px 60px 0 rgba(29,29,31,.07);
     .content{
-      width:90%;
+      width:1230px;
       margin:0 auto;
       height:80px;
       line-height:80px;

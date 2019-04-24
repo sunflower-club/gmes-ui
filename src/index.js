@@ -5,6 +5,7 @@ import preventButton  from '../packages/prevent-button/index';
 import radio 					from '../packages/radio/index';
 import tab 						from '../packages/tab/index';
 import tableCanvas 		from '../packages/table-canvas/index';
+// import stlModel 		  from '../packages/stl-model/index';
 
 import Gloading    from '../packages/loading/index';
 
@@ -17,6 +18,7 @@ const components = [
   radio,
   tab,
   tableCanvas,
+  // stlModel
 ]
 
 const install = function(Vue, opts = {}){
@@ -35,6 +37,7 @@ export {
   tab,
   tableCanvas,
   Gloading,
+  /*stlModel*/
 }
 
 export default {
@@ -45,5 +48,6 @@ export default {
   radio,
   tab,
   tableCanvas,
-  install
+  install,
+  // stlModel
 }

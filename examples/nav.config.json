@@ -17,6 +17,10 @@
       {
         "path": "update",
         "name": "更新日志"
+      },
+      {
+        "path": "statement",
+        "name": "结构与规范"
       }
     ]
   },
@@ -47,6 +51,10 @@
        {
         "path": "inputbutton",
         "name": "inputbutton"
+      },
+      {
+        "path": "stlmodel",
+        "name": "stlmodel"
       }
     ]
   }

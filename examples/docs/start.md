@@ -32,7 +32,7 @@
 
 ```js
 import gmesui from 'gmes-ui' // 引入组件库
-import 'gmes-ui/index.css' // 引入样式库
+import 'gmes-ui/src/theme-default/lib/index.css'; // 引入样式库
 
 Vue.use(gmesui)
 ```
@@ -46,7 +46,7 @@ import { radio } from 'gmes-ui'
 
 export default {
   components: {
-    radio
+    glRadio:radio
   }
 }
 ```

@@ -19,7 +19,7 @@ LoadingConstructor.prototype.close = function(){
 }
 
 class Loading {
-		constructor(options = {}){
+	constructor(options = {}){
 	  if (typeof options.target === 'string') {
 	    options.target = document.querySelector(options.target);
 	  }
@@ -38,14 +38,14 @@ class Loading {
 		}
 		return instance
 	}
-}
 
-Loading.server=(options = {})=>{
+	static server=(options = {})=>{
 		options = Object.assign({},defaultConfig,options)
 		if(options.fullscreen && fullscreenLoading){
 			return fullscreenLoading
 		}
 		return new Loading(options);
+	}
 }
 
 export default Loading

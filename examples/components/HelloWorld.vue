@@ -5,7 +5,9 @@
     <gl-radio v-model="zyz" label="b">a</gl-radio>
     <gl-radio v-model="zyz" label="a">b</gl-radio>
     <gl-radio v-model="zyz" label="c">c</gl-radio>
-    <gl-table-canvas
+    <div class="lv" style="position:relative"></div>
+
+    <gl-canvas
       :canvasHeight="400" 
       :canvasWidth="400" 
       :grid_cols="6"  
@@ -13,13 +15,16 @@
       borderc="#ff5000"
       selectc="#ff5000"
       :canvasImg="img"
-    ></gl-table-canvas>
+    ></gl-canvas>
     <i class="gl-icon-quanpin"></i>
+    <div>111</div>
+    <tt :render-body="hh"></tt>
   </div>
 </template>
 
 <script>
-  import { Gloading } from '../../src/index'
+  import { Gloading } from '../../src/index';
+  import tt from './tt.vue'
 export default {
   name: 'HelloWorld',
   data(){
@@ -32,16 +37,37 @@ export default {
     }
   },
   mounted(){
-    console.log(Gloading)
-   const myload2 = Gloading.server({
-    name:'ZYZ',
-    message:'你大爷'
-   });  
+   // const myload2 = Gloading.server({
+   //  name:'ZYZ',
+   //  message:'你大爷',
+   //  backgroundColor:'#000',
+   //  scale:'0.5',
+   // });  
 
    setTimeout(()=>{
     //myload2.close();
    },2000)
   },
+  components:{
+    tt,
+  },
+  methods:{
+    hh(h,a){
+      return h('div',
+        {
+          on:{
+            click:() => {this.tts()}
+          }
+        },
+        [
+          'testss',a
+        ]
+      )
+    },
+    tts(){
+      console.log(111)
+    }
+  }
 }
 </script>
 
