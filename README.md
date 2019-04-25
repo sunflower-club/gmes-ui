@@ -1,26 +1,12 @@
-# car-ui
+### 启动
+npm start
 
-> A Vue.js project
+### 打包
+1. npm run build
+2. cd dist
+3. npm run install_packages
 
-## 安装
+### mongodb 启动
+mongod --dbpath=/frontend/data/db/ --logpath=/frontend/logs/mongodb.log -logappend  --auth --fork --port 27017
 
-- yarn
-
-```bash
-yarn add gmes-ui
-```
-
-- npm 
-
-```bash
-npm install gmes-ui --save
-```
-
-## 使用
-
-```js
-import gmesUi from 'gmes-ui' // 引入组件库
-import 'gmes-ui/index.css' // 引入样式库
-
-Vue.use(gmesUi)
-```
+> --auth 表示权限认证启动。不需要的可以去除

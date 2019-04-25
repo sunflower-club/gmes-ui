@@ -1,0 +1,111 @@
+<div id="chats-box">
+	<h2>chat</h2>
+	<div class="content">
+
+	</div>
+	<div class="submit">
+		<input type="text" id="chatValue"/>
+		<a id="submit-btn">send</a>
+	</div>
+	<div class="login-tpl">
+		<input type="text" id="name" placeholder="写个名字吧"/>
+		<a id="login-btn">login</a>
+	</div>
+	</div>
+</div>
+<script type="text/javascript" src="/js/lib/socket.io.js"></script>
+<script>
+	var Chat = function(){
+		this.socket = io.connect('http://10.200.163.31:3003');
+		this.head = document.getElementsByTagName('h2')[0];
+		this.content = document.getElementsByClassName('content')[0];
+		this.submitDom = document.getElementById('submit-btn');
+		this.loginDom = document.getElementById('login-btn');
+		this.valDom = document.getElementById('chatValue');
+		this.sockets();
+		this.event();
+	}
+	Chat.prototype.sockets = function(){
+		var that = this;
+		this.socket.on('connect', function () {
+        	that.socket.emit('group1',{success:true});
+      	});
+		this.socket.on('news', function (data) {
+			var text = `${data.name}:${data.my}`
+			that.append(text)
+		});
+		this.socket.on('preson', function (data) {
+			that.head.innerHTML = 'chat：online preson  '+data.name + "("+data.num +")"
+		});
+	}
+	Chat.prototype.event = function(){
+		var that = this;
+		this.submitDom.onclick=function(){
+			var val = that.valDom.value
+			that.socket.emit('my other event', { my: val ,name:localStorage.getItem('name')});
+			document.getElementById('chatValue').value = ''
+		};
+		this.valDom.onkeydown=function(e){
+			if(e.keyCode == 13){
+				var event = new MouseEvent('click')
+				that.submitDom.dispatchEvent(event)
+			}
+		}
+		this.loginDom.onclick=function(){
+			var name = document.querySelector('#name').value
+			if(name){
+				var loignDom = document.getElementsByClassName('login-tpl')[0]
+				document.querySelector('#chats-box').removeChild(loignDom)
+				that.socket.emit('login', { name: name});
+				localStorage.setItem('name',name);
+			}else{
+
+			}
+		};
+		window.onbeforeunload = function(){
+			this.socket.emit('out',{name:localStorage.getItem('name')});
+		}
+	}
+	Chat.prototype.append = function(text){
+		var appendDom = document.createElement('div')
+		appendDom.innerHTML = text;
+		this.content.appendChild(appendDom)
+	}
+
+	new Chat();
+		
+	
+
+</script>
+
+<style>
+	a{
+	    color:#000;
+	}
+	h2{
+		text-align:center;
+	}
+    #chats-box{
+    	width:100%;
+    	height:600px;
+        display:flex;
+       	flex-direction:column;
+       	position:relative;
+    }
+    .content{
+    	flex-grow:1;
+    }
+    .submit{
+    	display:flex;
+    }
+    .login-tpl{
+    	position:absolute;
+    	top:0;
+    	left:0;
+    	width:100%;
+    	height:100%;
+    	background:#CCC;
+    	text-align:center;
+    	padding:100px 0 0 0
+    }
+</style>

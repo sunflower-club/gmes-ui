@@ -1,0 +1,30 @@
+<form name="zyz" enctype="multipart/form-data">
+	<input type="file" id="lv" name="lv"/>
+</form>
+<script src="https://cdn.bootcss.com/jquery/3.2.0/jquery.js"></script>
+<script>
+	const dom = document.querySelector('#lv');
+	dom.onchange = function(e){
+		let formData = new FormData();
+		formData.append('img',dom.files[0])
+		formData.append('name','zyz')
+		alert(formData.getAll('img'))
+		var request = new XMLHttpRequest();
+		request.open("POST", "http://10.200.147.187:3003/api/pic");
+		//request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+		request.send(formData);
+		request.onreadystatechange = function(){  
+            if(request.readyState == 4){  
+                if(request.status == 200){  
+                console.log(JSON.parse(request.responseText))
+                    $('body').append(JSON.parse(request.responseText).content);  
+                }else{  
+                    alert("error");  
+                }  
+            }  
+        }  
+		
+	}
+
+
+</script>

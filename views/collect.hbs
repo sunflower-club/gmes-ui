@@ -1,0 +1,28 @@
+<table border="1" cellspacing="0">
+    <tr>
+    	<th>index</th>
+    	<th>type</th>
+    	<th>userText</th>
+    	<th>data</th>
+    	<th>date</th></tr>
+    {{#each colList}}
+        <tr>
+            <td>{{@index}}</td>
+            <td>{{type}}</td>
+            <td>{{userText}}</td>
+            <td>{{data}}</td>
+            <td>{{date}}</td>
+        </tr>
+    {{/each}}
+</table>
+
+<style>
+    table{
+        text-align:center;
+        width:100%;
+        overflow:hidden;
+    }
+    table td,th{
+
+    }
+</style>

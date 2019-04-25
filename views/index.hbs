@@ -1,0 +1,25 @@
+<table border="1" cellspacing="0">
+    <tr><th>index</th><th>username</th><th>userage</th><th>password</th><th>date</th></tr>
+    {{#each userList}}
+        <tr>
+            <td>{{@index}}</td>
+            <td>{{username}}</td>
+            <td>{{userage}}</td>
+            <td>{{userpwd}}</td>
+            <td>{{logindate}}</td>
+        </tr>
+    {{/each}}
+</table>
+
+<style>
+    table{
+        text-align:center;
+        width:100%;
+        overflow:hidden;
+    }
+    table td,th{
+    
+    }
+</style>
+
+

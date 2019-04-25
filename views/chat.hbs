@@ -1,0 +1,45 @@
+<div id="main" style="width:100%;height:600px;"></div>
+<span>{{content}}</span>
+<span><script>alert(111)</script></span>
+<table border="1" cellspacing="0">
+    <tr>
+        <th>index</th>
+        <th>type</th>
+        <th>userText</th>
+        <th>data</th>
+        <th>date</th></tr>
+    {{#each content}}
+        <tr>
+            <td>{{@index}}</td>
+            <td>{{time}}</td>
+            <td>{{userText}}</td>
+            <td>{{data}}</td>
+            <td>{{date}}</td>
+        </tr>
+    {{/each}}
+</table>
+<script type="text/javascript" src="/js/lib/echarts.js"></script>
+<script type="text/javascript">
+    const myChart = echarts.init(document.getElementById('main'));
+    const option = {
+        title: {
+            text: 'MT前端日志'
+        },
+        tooltip: {},
+        legend: {
+            data:['请求数']
+        },
+        xAxis: {
+            data: ["衬衫","羊毛衫","雪纺衫","裤子","高跟鞋","袜子"]
+        },
+        yAxis: {},
+        series: [{
+            name: '请求数',
+            type: 'line',
+            data: [5, 20, 36, 10, 10, 20]
+        }]
+    };
+    myChart.setOption(option);
+
+
+</script>

@@ -1,0 +1,47 @@
+<header>
+    注册用户
+</header>
+<section class="userinfo">
+    <div>
+        <label>username:</label>
+        <input name="username" id="username" />
+    </div>
+    <div>
+        <label>userage:</label>
+        <input name="userage" id="userage" />
+    </div>
+    <div>
+        <label>userpwd:</label>
+        <input name="userpwd" id="userpwd" />
+    </div>
+</section>
+<foot>
+    <a class="sub-btn">submit</a>
+</foot>
+<script>
+    var btn = document.querySelector('.sub-btn')
+    btn.onclick=function(){
+        var username = document.querySelector('#username').value
+        var userage = document.querySelector('#userage').value
+        var userpwd = document.querySelector('#userpwd').value
+        var xml = new XMLHttpRequest()
+        xml.open('post','http://localhost:3000/api/users')
+        xml.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xml.send('username='+username+'&userage='+userage+'&userpwd='+userpwd)
+    }
+</script>
+<style>
+    header{
+        text-align:center;
+    }
+    .userinfo div{
+        display:flex;
+        margin:10px;
+    }
+    .userinfo div label{
+        width:25%;
+    }
+    .userinfo div input{
+        padding:5px 10px
+    }
+</style>
